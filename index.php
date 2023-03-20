@@ -63,7 +63,7 @@ $hotels = [
 
 foreach($hotels as $value):
     ?>
-        <li><?php echo $value["name"] . $value["description"] . $value["parking"] . $value["vote"] . $value[ "distance_to_center"];?>
+        <li><?php echo $value["name"] . $value["description"] . $value["parking"] . $value["vote"] . $value[ "distance_to_center"]." km";?>
         </li>
         <?php
     endforeach;
@@ -89,9 +89,10 @@ foreach($hotels as $value):
                 <tr>
                     <td><?php echo $value["name"];?></td>
                     <td><?php echo $value["description"];?></td>
-                    <td><?php echo $value["parking"];?></td>
-                    <td><?php echo $value["vote"];?></td>
-                    <td><?php echo $value["distance_to_center"];?></td>
+                    <!-- <td><?php echo $value["parking"];?></td> -->
+                    <td><?php (($value["parking"]== true)? echo "SI" : echo "NO");?></td>
+                    <td><?php echo $value["vote"]." / 5";?></td>
+                    <td><?php echo $value["distance_to_center"]. " km";?></td>
                     <?php
                           endforeach;
                       ?>
