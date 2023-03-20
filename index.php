@@ -15,57 +15,93 @@
 </head>
 
 <body>
+    <?php
+
+$hotels = [
+    
+    [
+        'name' => 'Hotel Belvedere',
+        'description' => 'Hotel Belvedere Descrizione',
+        'parking' => true,
+        'vote' => 4,
+        'distance_to_center' => 10.4
+    ],
+    [
+        'name' => 'Hotel Futuro',
+        'description' => 'Hotel Futuro Descrizione',
+        'parking' => true,
+        'vote' => 2,
+        'distance_to_center' => 2
+    ],
+    [
+        'name' => 'Hotel Rivamare',
+        'description' => 'Hotel Rivamare Descrizione',
+        'parking' => false,
+        'vote' => 1,
+        'distance_to_center' => 1
+    ],
+    [
+        'name' => 'Hotel Bellavista',
+        'description' => 'Hotel Bellavista Descrizione',
+        'parking' => false,
+        'vote' => 5,
+        'distance_to_center' => 5.5
+    ],
+    [
+        'name' => 'Hotel Milano',
+        'description' => 'Hotel Milano Descrizione',
+        'parking' => true,
+        'vote' => 2,
+        'distance_to_center' => 50
+    ],
+    
+];
+// var_dump($hotels);
+?>
     <ul>
         <?php
 
-    $hotels = [
-
-        [
-            'name' => 'Hotel Belvedere',
-            'description' => 'Hotel Belvedere Descrizione',
-            'parking' => true,
-            'vote' => 4,
-            'distance_to_center' => 10.4
-        ],
-        [
-            'name' => 'Hotel Futuro',
-            'description' => 'Hotel Futuro Descrizione',
-            'parking' => true,
-            'vote' => 2,
-            'distance_to_center' => 2
-        ],
-        [
-            'name' => 'Hotel Rivamare',
-            'description' => 'Hotel Rivamare Descrizione',
-            'parking' => false,
-            'vote' => 1,
-            'distance_to_center' => 1
-        ],
-        [
-            'name' => 'Hotel Bellavista',
-            'description' => 'Hotel Bellavista Descrizione',
-            'parking' => false,
-            'vote' => 5,
-            'distance_to_center' => 5.5
-        ],
-        [
-            'name' => 'Hotel Milano',
-            'description' => 'Hotel Milano Descrizione',
-            'parking' => true,
-            'vote' => 2,
-            'distance_to_center' => 50
-        ],
-
-    ];
-var_dump($hotels);
-
-for ($i=0; $i<count($hotels); $i++)
-?>
-        <li> <?php echo $hotels; ?></li>
+foreach($hotels as $value):
+    ?>
+        <li><?php echo $value["name"] . $value["description"] . $value["parking"] . $value["vote"] . $value[ "distance_to_center"];?>
+        </li>
         <?php
-     endfor;
-     ?>
+    endforeach;
+    ?>
     </ul>
+    <div class="container">
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Parking</th>
+                    <th scope="col">Vote</th>
+                    <th scope="col">Distance to Center</th>
+
+                </tr>
+            </thead>
+            <?php
+
+                        foreach($hotels as $value):
+                     ?>
+            <tbody>
+                <tr>
+                    <td><?php echo $value["name"];?></td>
+                    <td><?php echo $value["description"];?></td>
+                    <td><?php echo $value["parking"];?></td>
+                    <td><?php echo $value["vote"];?></td>
+                    <td><?php echo $value["distance_to_center"];?></td>
+                    <?php
+                          endforeach;
+                      ?>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+
 </body>
 
 </html>
